@@ -571,7 +571,7 @@ main .recent-order a {
   main table thead tr th:first-child {
     display: none;
   }
-  main table tbody tr td:last-child,
+
   main table tbody tr td:first-child {
     display: none;
   }
@@ -595,7 +595,7 @@ main .recent-order a {
     height: 100vh;
     padding-right: var(--card-padding);
     display: none;
-    animation: showMenu 400ms ease forwards;
+    animation: showMenu 400ms ease-in forwards;
   }
 
   @keyframes showMenu {
@@ -644,7 +644,8 @@ main .recent-order a {
 
   main .recent-order table {
     width: 100%;
-    margin: 0;
+    margin-top: 1rem;
+    padding-top: 1rem;
   }
 
   .right {
@@ -688,4 +689,18 @@ main .recent-order a {
   .right .top button span {
     font-size: 2rem;
   }
+
+  .right .recent-updates {
+    width: 100vw;
+    padding: 0 1.1rem 0rem 1.1rem;
+  }
+
+  .right .sales-analytics {
+    padding: 0 1.1rem 0rem 1.1rem;
+  }
+
+  .right .item.add-product {
+    margin-top: 1.2rem;
+  }
+
 }

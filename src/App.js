@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Header } from "./components/Header";
+import { Orders } from "./shared/orders";
 
 function App() {
   document.addEventListener("DOMContentLoaded", function (event) {
@@ -10,32 +11,31 @@ function App() {
     });
 
     // To close the drawer
-    // document.querySelector("#close-btn").addEventListener("click", function () {
-    //   document.querySelector("aside").style.display = "none";
-    //   console.log(event);
-    // });
+    document.querySelector("#close-btn").addEventListener("click", function () {
+      document.querySelector("aside").style.display = "none";
+      console.log(event);
+    });
 
     // To toggle the theme
-    // document
-    //   .querySelector(".theme-toggler")
-    //   .addEventListener("click", function () {
-
-    //     // document.body.classList.toggle("dark-theme-variables");
-    //   });
   });
 
-  // themetoggler.addEventListener("click", () => {
-  //   console.log('pressed');
-  //   document.body.classList.toggle("dark-theme-variables");
-  // });
 
-  // menuBtn.addEventListener("click", () => {
-  //   sideMenu.style.display = "block";
-  // });
+  function RenderROrders() {
 
-  // closeBtn.addEventListener("click", () => {
-  //   sideMenu.style.display = "none";
-  // });
+    return Orders.map((item, index) => {
+      return (
+        <tr id={index}>
+          <td>{item.productName}</td>
+          <td>{item.productNumber}</td>
+          <td> {item.paymentStatus}</td>
+          <td className={item.shipping === "Pending" ? "warning" : "danger"}>
+            {item.shipping}
+          </td>
+        </tr>
+      );
+    });
+  }
+
 
   return (
     <div className="container">
@@ -192,41 +192,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td> Due</td>
-                <td className="warning">Pending</td>
-                <td className="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td> Due</td>
-                <td className="warning">Pending</td>
-                <td className="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td> Due</td>
-                <td className="warning">Pending</td>
-                <td className="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td> Due</td>
-                <td className="warning">Pending</td>
-                <td className="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td> Due</td>
-                <td className="warning">Pending</td>
-                <td className="primary">Details</td>
-              </tr>
+              <RenderROrders />
             </tbody>
           </table>
           <a href="#">Show All</a>
@@ -271,6 +237,7 @@ function App() {
                 <small className="text-muted"> 2 Minutes Ago</small>
               </div>
             </div>
+
             <div className="update">
               <div className="profile-photo">
                 <img src="/assets/images/profile-3.jpg" alt="profile-2" />
